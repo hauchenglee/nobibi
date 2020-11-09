@@ -1,4 +1,4 @@
-package com.nobibi.nobibicore;
+package com.nobibi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
