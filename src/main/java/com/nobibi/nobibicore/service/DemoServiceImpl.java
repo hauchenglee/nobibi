@@ -16,4 +16,9 @@ public class DemoServiceImpl implements DemoService {
     public Optional<Demo> findById(String id) {
         return demoDao.findById(id);
     }
+
+    @Override
+    public void save(Demo demo) {
+        demoDao.save(demo);
+    }
 }

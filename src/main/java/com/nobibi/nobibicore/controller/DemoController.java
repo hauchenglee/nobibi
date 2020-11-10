@@ -8,8 +8,10 @@ import com.nobibi.common.bean.ResultCode;
 import com.nobibi.common.utils.Constants;
 import com.nobibi.nobibicore.model.Demo;
 import com.nobibi.nobibicore.service.DemoService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,13 +23,13 @@ public class DemoController {
     private DemoService demoService;
 
     @GetMapping(value = "/api/demo", produces = Constants.CONTENT_TYPE_JSON)
-    public String demo(HttpServletRequest request, @RequestBody String receiveJSONString) {
+    public String demo(HttpServletRequest request, @RequestBody String receiveJSON) {
         int result = 1;
         return "{\"aaa\": \"" + result + "\"}";
     }
 
     @GetMapping(value = "/api/demo/error", produces = Constants.CONTENT_TYPE_JSON)
-    public ResultBean result(HttpServletRequest request, @RequestBody String receiveJSONString) {
+    public ResultBean<String> error(HttpServletRequest request, @RequestBody String receiveJSON) {
         return ResultBean.error(ResultCode.Exception.getCode(), ResultCode.Exception.getMessage());
     }
 
@@ -38,5 +40,15 @@ public class DemoController {
         JsonNode jsonNode = mapper.readTree(receiveJSON);
         String id = jsonNode.asText();
         return ResultBean.success(demoService.findById(id));
+    }
+
+    @SneakyThrows
+    @PostMapping(value = "/api/demo/addDemo", produces = Constants.CONTENT_TYPE_JSON)
+    public ResultBean<Boolean> addDemo(HttpServletRequest request, @RequestBody String receiveJSON) {
+        System.out.println(receiveJSON);
+        ObjectMapper mapper = new ObjectMapper();
+        Demo demo = mapper.readValue(receiveJSON, Demo.class);
+        demoService.save(demo);
+        return ResultBean.success(true);
     }
 }

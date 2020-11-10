@@ -1,6 +1,5 @@
 package com.nobibi.common.bean;
 
-import com.nobibi.nobibicore.model.Demo;
 import lombok.Data;
 
 import java.util.Optional;
@@ -11,9 +10,14 @@ public class ResultBean<T> {
     private String message = "SUCCESS";
     private T data;
 
-    private ResultBean() { }
+    private ResultBean() {
+    }
 
-    public static <V> ResultBean<V> success() {
+    public static <T> ResultBean<T> success(Boolean result) {
+        ResultBean<T> ResultBean = new ResultBean<>();
+        ResultBean.code = ResultCode.SUCCESS.getCode();
+        ResultBean.message = ResultCode.SUCCESS.getMessage();
+        ResultBean.data = (T) result;
         return new ResultBean<>();
     }
 
