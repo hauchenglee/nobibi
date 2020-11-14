@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @RestController
 public class DemoController {
+
     @Autowired
     private DemoService demoService;
 
@@ -38,8 +40,9 @@ public class DemoController {
         System.out.println(receiveJSON);
         ObjectMapper mapper = new ObjectMapper();
         JsonNode jsonNode = mapper.readTree(receiveJSON);
-        String id = jsonNode.asText();
-        return ResultBean.success(demoService.findById(id));
+        String id = jsonNode.get("id").asText();
+        Optional<Demo> demo = demoService.findById(id);
+        return ResultBean.success(demo);
     }
 
     @SneakyThrows

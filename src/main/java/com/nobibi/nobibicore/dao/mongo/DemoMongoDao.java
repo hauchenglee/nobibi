@@ -1,4 +1,4 @@
-package com.nobibi.nobibicore.dao;
+package com.nobibi.nobibicore.dao.mongo;
 
 
 import com.nobibi.nobibicore.model.Demo;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface DemoDao extends MongoRepository<Demo, String> {
+public interface DemoMongoDao extends MongoRepository<Demo, String> {
 
     Optional<Demo> findById(String id);
 
