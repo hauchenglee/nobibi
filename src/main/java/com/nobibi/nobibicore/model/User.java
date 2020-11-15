@@ -32,7 +32,7 @@ public class User {
     @JoinTable(name = "user_dept",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "dept_id")})
-    private List<Dept> groupList;
+    private List<Dept> deptList;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinTable(name = "user_role",
