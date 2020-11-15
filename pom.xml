@@ -52,6 +52,12 @@
 			</exclusions>
 		</dependency>
 
+<!--		validation-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
 <!--		mongodb database-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
