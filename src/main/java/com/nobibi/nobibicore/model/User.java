@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 public class User {
 
+    // TODO: change entity id to pk, then change uuid to id
     @Id
     private String user_id;
 
@@ -22,6 +23,10 @@ public class User {
     @Column(nullable = false)
     @NotNull
     private String user_password;
+
+    @Column(nullable = false)
+    @NotNull
+    private String user_name;
 
     @Column(nullable = false, unique = true)
     @NotNull
