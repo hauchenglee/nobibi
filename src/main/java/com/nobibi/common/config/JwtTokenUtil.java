@@ -1,6 +1,5 @@
 package com.nobibi.common.config;
 
-import com.nobibi.common.utils.Constants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
