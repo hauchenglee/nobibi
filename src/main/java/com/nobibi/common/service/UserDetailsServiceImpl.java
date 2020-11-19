@@ -16,12 +16,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String user_uuid) throws UsernameNotFoundException {
-        // TODO: change findById to findBy uuid
+    public UserDetails loadUserByUsername(String user_account) throws UsernameNotFoundException {
         // TODO: change exception log
-        // TODO: fix get user by dao
-        User user = userService.findByUser_uuid(user_uuid)
-                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + user_uuid));
+        User user = userService.findByUser_account(user_account)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + user_account));
 
 //        {
 //            user = new User();

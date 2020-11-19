@@ -19,7 +19,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private String user_id;
 
-    private String user_uuid;
+    private String user_account;
 
     private String user_name;
 
@@ -34,7 +34,7 @@ public class UserDetailsImpl implements UserDetails {
         List<GrantedAuthority> authorities = Collections.emptyList();
 
         UserDetailsImpl userDetails = new UserDetailsImpl();
-        userDetails.setUser_id(user.getUser_uuid());
+        userDetails.setUser_id(user.getUser_account());
         userDetails.setUser_name(user.getUser_name());
         userDetails.setUser_emial(user.getUser_email());
         userDetails.setUser_password(user.getUser_password());

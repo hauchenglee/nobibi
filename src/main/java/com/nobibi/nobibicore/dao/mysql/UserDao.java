@@ -13,6 +13,6 @@ public interface UserDao extends JpaRepository<User, String> {
 
     Optional<User> findById(String id);
 
-    @Query("SELECT u FROM User u WHERE u.user_uuid = :uuid")
-    Optional<User> findByUser_uuid(@Param("uuid") String uuid);
+    @Query("SELECT u FROM User u WHERE u.user_account = :account")
+    Optional<User> findByUser_account(@Param("account") String account);
 }

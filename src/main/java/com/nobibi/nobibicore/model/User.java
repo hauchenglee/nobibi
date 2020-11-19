@@ -12,13 +12,13 @@ import java.util.List;
 @Data
 public class User {
 
-    // TODO: change entity id to pk, then change uuid to id
+    // TODO: change entity id to pk, then change account to id
     @Id
     private String user_id;
 
     @Column(nullable = false, unique = true)
     @NotNull
-    private String user_uuid;
+    private String user_account;
 
     @Column(nullable = false)
     @NotNull

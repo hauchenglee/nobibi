@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByUser_uuid(String uuid) {
-        return userDao.findByUser_uuid(uuid);
+    public Optional<User> findByUser_account(String account) {
+        return userDao.findByUser_account(account);
     }
 }
