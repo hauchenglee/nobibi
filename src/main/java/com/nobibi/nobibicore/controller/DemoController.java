@@ -26,7 +26,7 @@ public class DemoController {
 
     @GetMapping(value = "/api/demo", produces = Constants.CONTENT_TYPE_JSON)
     public String demo(HttpServletRequest request, @RequestBody String receiveJSON) {
-        int result = 1;
+        int result = 2;
         return "{\"aaa\": \"" + result + "\"}";
     }
 
